@@ -24,9 +24,13 @@ unpublished: false
 whitelist: []
 gems:      [jekyll-paginate]
 
+# Sass
+sass:
+        sass_dir: css
+
 # Conversion
 markdown:    kramdown
-highlighter: pygments
+highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
 
