@@ -1,0 +1,15 @@
+---
+#Sass
+---
+
+@import '../_sass/core/font';
+%nazanin { font-family: 'Nazanin';}
+body {
+
+     @extend %nazanin;
+
+}
+
+h1,h2,h3{
+    @extend %nazanin;
+}

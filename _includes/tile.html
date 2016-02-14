@@ -1,4 +1,48 @@
-<div class="tile">
+<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+<div class="row">
+    <div class="col-md-6">
+
+        <ul class="list-inline">
+            <!-- Categories -->
+            <li>
+                {% if post.categories != empty %}
+                <span class="fa fa-folder-open"></span>
+
+                {% for category in post.categories %}
+                <a href="#"> {{ category }}</a>,
+                {% endfor %}
+                {% endif %}
+            </li>
+
+            <!-- Tags -->
+            <li>
+                <span class="fa fa-bookmark"></span>
+                {% for tag in post.tags %}
+                <a href="#"> {{ tag }}</a>,
+                {% endfor %}
+            </li>
+        </ul>
+
+
+    </div>
+    <div class="col-md-6 text-right">
+        <span class="fa fa-clock-o"></span> {{ post.date | date: "%m.%d.%y" }}
+    </div>
+</div>
+
+<p class="lead text-justify">
+    {{ post.excerpt }} ...
+</p>
+
+<p class="text-right">
+    <a href="{{ post.url }}" class="btn btn-primary">Read More <i
+            class="fa fa-angle-right"></i></a>
+</p>
+
+<hr/>
+
+
+<!-- <div class="tile">
     {% if post.featured_image or post.featured_video_id %}
     <a href="{{ post.url | prepend: site.baseurl }}" class="featurette">
         {% if post.featured_image %}
@@ -6,29 +50,9 @@
         {% endif %}
 
         {% if post.featured_video_id %}
-        <iframe src="https://www.youtube.com/embed/{{ post.featured_video_id }}" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/{{ post.featured_video_id }}" frameborder="0"
+                allowfullscreen></iframe>
         {% endif %}
     </a>
     {% endif %}
-    <div class="inner-guts">
-        <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
-        <aside>
-            {{ post.date | date: "%m.%d.%y" }}
-            {% if post.categories != empty %}
-                &middot;
-                {% for category in post.categories %}
-                    <span>{{ category }}</span>
-                {% endfor %}
-            {% endif %}
-        </aside>
-        <div class="excerpt">{{ post.excerpt }}</div>
-        <a href="{{ post.url | prepend: site.baseurl }}" class="read-more btn btn-info btn-lg">Read More <i class="fa fa-angle-right"></i></a>
-        {% if post.categories != empty %}
-        <div class="tags">
-            {% for tag in post.tags %}
-            <span>{{ tag }}</span>
-            {% endfor %}
-        </div>
-        {% endif %}
-    </div>
-</div>
+</div> -->

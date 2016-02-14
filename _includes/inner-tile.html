@@ -1,0 +1,132 @@
+<!--{% if page.featured_image or page.featured_video_id %}
+<div class="topper">
+    {% if page.featured_image %}
+        <span class="img" style="background-image: url('{{ page.featured_image }}');">
+        {% endif %}
+
+        {% if page.featured_video_id %}
+        <iframe src="https://www.youtube.com/embed/{{ page.featured_video_id }}" frameborder="0"
+                allowfullscreen></iframe>
+        {% endif %}
+</div>
+{% endif %}
+-->
+
+<div id="body">
+    <div class="container">
+        <!-- Rightbar -->
+        <div class="col-md-9">
+
+            <h1 class="text-center">
+
+                <!-- Title -->
+                {% if page.title %}
+                {{ page.title }}
+                {% else %}
+                {{ site.data.global.title }}
+                {% endif %}
+
+            </h1>
+
+            <p class="lead">
+
+
+                {% if page.lead_text %}
+                {{ page.lead_text }}
+                {% elsif post.lead_text %}
+                {{ post.lead_text }}
+                {% endif %}
+            </p>
+
+
+            {% if page.show_post_info %}
+            <!-- Post info -->
+            <div class="row">
+                <div class="col-md-6">
+
+                    <ul class="list-inline">
+                        <!-- Categories -->
+                        {% if page.categories != empty %}
+                        <li>
+
+
+                            <span class="fa fa-folder-open"></span>
+
+                            {% for category in page.categories limit:1 %}
+
+
+                            <a href="/categories/#{{ category }}"> {{ category }}</a>
+                            {% endfor %}
+
+                            {% for category in page.categories offset:1 %}
+                            ,<a href="/categories/#{{ category }}"> {{ category }}</a>
+                            {% endfor %}
+
+
+                        </li>
+                        {% endif %}
+
+                        <!-- Tags -->
+                        {% if page.tags != empty %}
+
+                        <li>
+                            <span class="fa fa-bookmark"></span>
+                            {% for tag in page.tags limit:1 %}
+                            <a href="#"> {{ tag }}</a>
+                            {% endfor %}
+                            {% for tag in page.tags offset:1 %}
+                            ,<a href="#"> {{ tag }}</a>
+                            {% endfor %}
+                        </li>
+                        {% endif %}
+
+                    </ul>
+
+
+                </div>
+
+
+                <div class="col-md-6 text-right">
+                    <span class="fa fa-clock-o"></span> {{ page.date | date: "%m.%d.%y %H:%M:%S" }}
+                </div>
+            </div>
+
+            {% endif%}
+
+            <hr class="hr-special"/>
+
+            <article class="text-justify">
+                {{ content }}
+            </article>
+
+            <div class="row text-center">
+                <ul class="pager">
+                    <li><a href="{{ site.baseurl }}">Home</a></li>
+                </ul>
+            </div>
+
+
+        </div>
+
+        <!--Leftbar -->
+        {% include leftbar.html %}
+    </div>
+</div>
+
+<!-- Commenting
+<div class="title-group">
+
+    {% if page.id %}
+    <aside>
+        {{ page.date | date: "%m.%d.%y" }}
+        {% if page.categories != empty %}
+        &middot;
+        {% for category in page.categories %}
+        <span>{{ category }}</span>
+        {% endfor %}
+        {% endif %}
+    </aside>
+    {% endif %}
+
+</div>
+-->

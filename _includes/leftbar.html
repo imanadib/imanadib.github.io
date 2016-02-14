@@ -1,0 +1,56 @@
+<!-- Leftbar -->
+<div class="col-md-3">
+
+    <!-- Recent posts -->
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <i class="fa fa-folder-open"></i>
+            Recent posts
+        </div>
+        <ul class="list-group">
+            {% for post in site.posts limit:3 %}
+            <li class="list-group-item"><a href="{{ post.url }}">{{ post.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+    <!-- Categories -->
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <i class="fa fa-folder-open"></i>
+            Categories
+        </div>
+        <ul class="list-group">
+            {% for cat in site.categories %}
+            <li class="list-group-item">
+                <a href="/categories/#{{ cat[0] }}">
+                    {{ cat[0] }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+    <!-- Tags -->
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Tags
+        </div>
+        <div class="panel-body">
+            <ul class="list-inline">
+                {% for tag in site.tags %}
+                <li>
+                    <a href="/tags/#{{ tag[0] }}">
+                        #{{ tag[0] }}
+                    </a>
+
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+</div>

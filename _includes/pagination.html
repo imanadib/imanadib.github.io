@@ -1,3 +1,26 @@
+
+<ul class="pager">
+    {% if paginator.previous_page %}
+    <li class="previous">
+
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+            <i class="fa fa-chevron-left"></i> Prev
+        </a>
+    </li>
+    {% endif %}
+
+
+    {% if paginator.next_page %}
+    <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+            Next <i class="fa fa-chevron-right"></i>
+
+        </a>
+    </li>
+    {% endif %}
+</ul>
+
+<!--
 <nav class="pagination-wrap">
     <ul class="pagination">
         {% if paginator.previous_page %}
@@ -7,6 +30,8 @@
             </a>
         </li>
         {% endif %}
+
+         {{ paginator.page }} of {{ paginator.total_pages }}
 
         {% for page in (1..paginator.total_pages) %}
             {% if page == paginator.page %}
@@ -32,4 +57,4 @@
         </li>
         {% endif %}
     </ul>
-</nav>
+</nav> -->
